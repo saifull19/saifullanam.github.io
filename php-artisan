@@ -1,0 +1,230 @@
+// php artisan migrate -- membuat table pada database
+
+// php artisan migrate:fresh -- mengembalikan atau merefresh pada database setelah melakukan perubahan pada coding migrate database
+
+// php artisan tinker -- active record pattern pada penggunaan ORM (aplikasi di dalam laravel yang bisa dignakan untuk berinteraksi dengan aplikasi laravel yg kitabuat)
+
+/////// CREATE ISI DATABASE PADA TABLE USERS ///////////////
+
+Windows PowerShell
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+Try the new cross-platform PowerShell https://aka.ms/pscore6
+
+PS C:\application\laravel-dlapan> php artisan migrate
+Migration table created successfully.
+09ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated: 2019_08_19_000000_create_failed_jobs_table (48.15ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated: 2019_12_14_000001_create_personal_access_tokens_table (56.07ms)
+PS C:\application\laravel-dlapan> php artisan migrate:fresh
+Dropped all tables successfully.
+Migration table created successfully.
+Migrated: 2014_10_12_000000_create_users_table (63.24ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated: 2014_10_12_100000_create_password_resets_table (47.86ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated: 2019_08_19_000000_create_failed_jobs_table (52.05ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated: 2019_12_14_000001_create_personal_access_tokens_table (60.40ms)
+PS C:\application\laravel-dlapan> php artisan migrate:fresh
+Dropped all tables successfully.
+Migration table created successfully.
+Migrated: 2014_10_12_000000_create_users_table (55.41ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated: 2014_10_12_100000_create_password_resets_table (36.02ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated: 2019_08_19_000000_create_failed_jobs_table (42.45ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated: 2019_12_14_000001_create_personal_access_tokens_table (43.24ms)
+PS C:\application\laravel-dlapan> php artisan migrate:fresh
+Dropped all tables successfully.
+Migration table created successfully.
+Migrated: 2014_10_12_000000_create_users_table (37.27ms)
+Migrating: 2014_10_12_100000_create_password_resets_table
+Migrated: 2014_10_12_100000_create_password_resets_table (90.50ms)
+Migrating: 2019_08_19_000000_create_failed_jobs_table
+Migrated: 2019_08_19_000000_create_failed_jobs_table (61.78ms)
+Migrating: 2019_12_14_000001_create_personal_access_tokens_table
+Migrated: 2019_12_14_000001_create_personal_access_tokens_table (56.15ms)
+PS C:\application\laravel-dlapan> php artisan tinker
+Psy Shell v0.10.8 (PHP 7.4.19 — cli) by Justin Hileman
+
+> > > $user = new App\Models\User;
+=> App\Models\User {#3461}
+>>> $user = new User;
+> > > [!] Aliasing 'User' to 'App\Models\User' for this Tinker session.
+> > > => App\Models\User {#3462}
+> > > $user->name = 'Saiful Anam';
+=> "Saiful Anam"
+>>> $user->email = 'saiful@gmail.com';
+> > > => "saiful@gmail.com"
+> > > $user->password = bcrypt('1234')
+=> "$2y$10$ErmAsycwi8oX0uvodSqgoOIWQ.5kQqfQnYYUKQBflWXso4Kuu/k6q"
+> > > $user->save()
+=> true
+>>> $user->all()
+> > > => Illuminate\Database\Eloquent\Collection {#4188
+
+     all: [
+       App\Models\User {#4187
+         id: 1,
+         name: "Saiful Anam",
+         email: "saiful@gmail.com",
+         email_verified_at: null,
+         #password: "$2y$10$ErmAsycwi8oX0uvodSqgoOIWQ.5kQqfQnYYUKQBflWXso4Kuu/k6q",
+         #remember_token: null,
+         created_at: "2021-09-19 17:37:04",
+         updated_at: "2021-09-19 17:37:04",
+       },
+     ],
+
+}
+
+> > > $user = new User
+=> App\Models\User {#4253}
+>>> $user->name = 'Deddy Mulyadi';
+> > > => "Deddy Mulyadi"
+> > > $user->email = 'deddy@gmail.com';
+=> "deddy@gmail.com"
+>>> $user->password = dcrypt('1234')
+> > > PHP Fatal error: Call to undefined function dcrypt() in Psy Shell code on line 1
+> > > $user->password = bry
+> > > <warning>PHP Warning: Use of undefined constant bry - assumed 'bry' (this will throw an Error in a future version of PHP) in C:\application\laravel-dlapaneval()'d code on line 1</warning>
+> > > => "bry"
+> > >
+> > > $user->password = bcrypt('1234')
+=> "$2y$10$KsZqgpVuKxoaHCYqQj074eigjdkz4hwSUgan6.2zbn0eQsEHVKHE6"
+> > > $user->save()
+=> true
+>>> $user->all()
+> > > => Illuminate\Database\Eloquent\Collection {#4408
+
+     all: [
+       App\Models\User {#4406
+         id: 1,
+         name: "Saiful Anam",
+         email: "saiful@gmail.com",
+         email_verified_at: null,
+         #password: "$2y$10$ErmAsycwi8oX0uvodSqgoOIWQ.5kQqfQnYYUKQBflWXso4Kuu/k6q",
+         #remember_token: null,
+         created_at: "2021-09-19 17:37:04",
+         updated_at: "2021-09-19 17:37:04",
+       },
+       App\Models\User {#4407
+         id: 2,
+         name: "Deddy Mulyadi",
+         email: "deddy@gmail.com",
+         email_verified_at: null,
+         #password: "$2y$10$KsZqgpVuKxoaHCYqQj074eigjdkz4hwSUgan6.2zbn0eQsEHVKHE6",
+         #remember_token: null,
+         created_at: "2021-09-19 17:42:34",
+         updated_at: "2021-09-19 17:42:34",
+       },
+     ],
+
+}
+
+> > >
+
+//// MENCARI ID USER //////////
+
+> > > $user->first()
+> > > => App\Models\User {#4418
+
+     id: 1,
+     name: "Saiful Anam",
+     email: "saiful@gmail.com",
+     email_verified_at: null,
+     #password: "$2y$10$ErmAsycwi8oX0uvodSqgoOIWQ.5kQqfQnYYUKQBflWXso4Kuu/k6q",
+     #remember_token: null,
+     created_at: "2021-09-19 17:37:04",
+     updated_at: "2021-09-19 17:37:04",
+
+}
+
+> > > $user->find(2)
+> > > => App\Models\User {#4400
+
+     id: 2,
+     name: "Deddy Mulyadi",
+     email: "deddy@gmail.com",
+     email_verified_at: null,
+     #password: "$2y$10$KsZqgpVuKxoaHCYqQj074eigjdkz4hwSUgan6.2zbn0eQsEHVKHE6",
+     #remember_token: null,
+     created_at: "2021-09-19 17:42:34",
+     updated_at: "2021-09-19 17:42:34",
+
+}
+
+> > > $user->find(200)
+=> null
+>>> $user->findOrFail(200)
+> > > Illuminate\Database\Eloquent\ModelNotFoundException with message 'No query results for model [App\Models\User] 200'
+
+<!--           membuat model sekaligus migrate         -->
+
+PS C:\application\laravel-dlapan> php artisan help make:model
+Description:
+Create a new Eloquent model class
+
+Usage:
+make:model [options] [--] <name>
+
+Arguments:
+name The name of the class
+
+Options:
+-a, --all Generate a migration, seeder, factory, policy, and resource controller for the model
+-c, --controller Create a new controller for the model
+-f, --factory Create a new factory for the model
+--force Create the class even if the model already exists
+-m, --migration Create a new migration file for the model
+--policy Create a new policy for the model
+-s, --seed Create a new seeder for the model
+-p, --pivot Indicates if the generated model should be a custom intermediate table model
+-r, --resource Indicates if the generated controller should be a resource controller
+--api Indicates if the generated controller should be an API controller
+-h, --help Display help for the given command. When no command is given d -q, --quiet Do not output any message
+-V, --version Display this application version
+--ansi|--no-ansi Force (or disable --no-ansi) ANSI output
+-n, --no-interaction Do not ask any interactive question
+--env[=ENV] The environment the command should run under
+-v|vv|vvv, --verbose Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+PS C:\application\laravel-dlapan> php artisan make:model -m Post
+Model created successfully.
+Created Migration: 2021_09_20_051521_create_posts_table
+
+<!-- php artisan tinker -->
+
+$post = new Post // menambahkan isi pada tabel posts
+
+$post::all() //untuk menampilkan semua isi pada tabel posts
+
+$post::first() //untuk menampilkan isi yang pertama di buat
+
+$post::find(2) //mnampilkan isi pada id 2
+
+$post::pluck('title') //menampilkan semua data hanya title nya
+
+<!--      membuat ini table pada data ase secara randem -->
+
+// php artisan db:seed ==== membuat isi database pada table secara randoom
+
+// php artisan make:model Student -mfs === makan akan langsung dibuatkan file model student,migrate,factory dan seeder
+
+<!-- install lbrari pada aplikasi laravel untuk mengecek performance aplikasi lalu di hubungkan ke ekstensi browser -->
+
+// composer require itsgoingd/clockwork
+
+<!-- membuat file resource dengan model -->
+
+// php artisan make:controller IndexController --resource --model=Post
+
+<!-- install packages untuk mengisi otomatis pada form  menggunakan composse-->
+
+// composer require cviebrock/eloquent-sluggable
+
+<!-- membuat simbolic link untuk membuat file yang telah kita uplod bisa di lihat public atau menyambungkan folder publik yang di folder kita terhadap folder publik yg ada di app -->
+//  php artisan storage:link

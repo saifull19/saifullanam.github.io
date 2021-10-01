@@ -1,0 +1,17 @@
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ducimus eum explicabo, animi autem odio tempore incidunt itaque maxime, deleniti, laboriosam cupiditate ratione quo veniam vitae illo. Sed deleniti, at nisi labore maxime quisquam consequatur aut culpa enim illo exercitationem perferendis modi, cum rem laboriosam.</p><p>Vero, illo. Sit delectus ut dolorum iusto laboriosam exercitationem perferendis dolor necessitatibus nisi provident cum qui, eaque alias quaerat quasi libero dolorem amet quos nesciunt, numquam enim obcaecati? Eveniet amet quae vel possimus explicabo dicta error alias illo nam ab id reiciendis aperiam quod sapiente sint distinctio velit, impedit in, eius esse necessitatibus voluptatem mollitia deleniti repellat. Voluptatem sed quas, quis, labore ducimus perferendis illo, obcaecati fugit explicabo animi provident assumenda quisquam debitis. Tempora, veniam!</p>
+
+
+php artisan tinker
+
+Post::create([
+    'category_id' => '1',
+    'title' => 'Judul Post Ke Empat',
+    'slug' => 'judul-keempat',
+    'excerpt' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ducimus eum explicabo, animi autem odio tempore incidunt itaque maxime, deleniti,',
+    'body' => '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam ducimus eum explicabo, animi autem odio tempore incidunt itaque maxime, deleniti, laboriosam cupiditate ratione quo veniam vitae illo. Sed deleniti, at nisi labore maxime quisquam consequatur aut culpa enim illo exercitationem perferendis modi, cum rem laboriosam.</p><p>Vero, illo. Sit delectus ut dolorum iusto laboriosam exercitationem perferendis dolor necessitatibus nisi provident cum qui, eaque alias quaerat quasi libero dolorem amet quos nesciunt, numquam enim obcaecati? Eveniet amet quae vel possimus explicabo dicta error alias illo nam ab id reiciendis aperiam quod sapiente sint distinctio velit, impedit in, eius esse necessitatibus voluptatem mollitia deleniti repellat. </p><p> Voluptatem sed quas, quis, labore ducimus perferendis illo, obcaecati fugit explicabo animi provident assumenda quisquam debitis. Tempora, veniam!</p>'
+])
+
+Category::create([
+    'name' => 'Ux Design',
+    'slug' => 'ux-design'
+])
