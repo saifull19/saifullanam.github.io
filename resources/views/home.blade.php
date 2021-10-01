@@ -84,20 +84,26 @@
         </div>
         <div class="row justify-content-center">
           <div class="col-6">
-            <form>
+
+            <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+              <strong>Terima Kasih!</strong> Pesan anda sudah kami terima.
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <form name="blogs-submit-to-google-sheet">
               <div class="mb-3">
                 <label for="name" class="form-label">Name Lengkap</label>
-                <input type="email" class="form-control" id="name" aria-describedby="emailHelp">
+                <input type="text" class="form-control" id="name" name="nama" >
                 <div id="emailHelp" class="form-text">We'll never share your name with anyone else.</div>
               </div>
               <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
                 <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
               </div>
               <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <textarea type="email" rows="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <label for="pesan" class="form-label">Pesan</label>
+                <textarea type="email" name="pesan" rows="3" class="form-control" id="pesan" aria-describedby="emailHelp">
                 </textarea>
               </div>
 
@@ -106,7 +112,12 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
               </div>
-              <button type="submit" class="btn btn-primary">Kirim</button>
+              <button type="submit" class="btn btn-primary btn-kirim">Kirim</button>
+
+              <button class="btn btn-primary btn-loading d-none" type="button" disabled>
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Loading...
+              </button>
             </form>
           </div>
         </div>
@@ -120,5 +131,33 @@
 
   </div>
 
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbzxB0g0mFTWoeqIwG4HyXwB9RQ0Z0orMciRohBuWBSmexvLVvYZ23eMYRnEiSppGos3Kw/exec'
+  const form = document.forms['blogs-submit-to-google-sheet']
 
+  const btnKirim = document.querySelector('.btn-kirim');
+  const btnLoading = document.querySelector('.btn-loading');
+  const myAlert = document.querySelector('.my-alert');
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    // ketika tombol kirim di submit
+    // tampilkan tombol loading hilangkan tombol kirim
+    btnLoading.classList.toggle('d-none');
+    btnKirim.classList.toggle('d-none');
+
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => {
+        // tampilkan tombol kirim, hilangkan tombol loading
+        btnLoading.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        // tampilkan alert
+        myAlert.classList.toggle('d-none');
+        // risert isi form nya, hilangkan isinya
+        form.reset();
+        console.log('Success!', response);
+        })
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
   @endsection
