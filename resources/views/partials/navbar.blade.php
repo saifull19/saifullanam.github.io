@@ -1,7 +1,7 @@
 <div class="container">
     
 
-<nav class="navbar bg-primary navbar-expand-lg navbar-dark justify-content-center">
+    <nav class="navbar navbarr bg-primary navbar-expand-lg navbar-dark justify-content-center" data-aos="fade-up-left" data-aos-duration="1000">
         <div class="container">
             <a class="navbar-brand" href="/">
                 <img src="/img/favicon.png" alt="" width="30" height="24">
@@ -54,11 +54,6 @@
                 </li>
                 @endauth
             </ul>
-
-            
-            </div>
         </div>
-    </nav>
-
-    
-</div>
+    </nav>   {{-- akhir navbar --}}
+</div>  {{-- akhir container --}}

@@ -8,7 +8,7 @@
 <div class="col-lg-8">
     <form action="/dashboard/posts/{{ $post->slug }}" method="post" class="mb-5" enctype="multipart/form-data">
         @method('put')
-        @csrf 
+        @csrf
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required autofocus value="{{ old('title', $post->title) }}">
@@ -50,9 +50,11 @@
             <label class="form-label" for="image">Post Image</label>
             <input type="hidden" name="oldImage" value="{{ $post->image }}">
             {{-- pengkondisian untuk menampilkan priview image --}}
-            
+            @if ($post->image)
+            <img src="{{ asset('storage/' . $post->image) }}" class="img-preview img-fluid mb-3 col-sm-5 d-block" >
+            @else
             <img class="img-preview img-fluid mb-3 col-sm-5" >        
-            
+            @endif
             <input type="file" class="form-control @error('image') is-invalid @enderror" id="image" name="image" onchange="previewImage()">
              @error('image')
             <div class="invalid-feedback">

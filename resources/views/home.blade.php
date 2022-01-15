@@ -9,9 +9,16 @@
     
       <section id="jumbotron" class="jumbotron pt-5  text-center" style="background-color: #e2edff;"> 
         
-        <img src="/img/f.jpeg" class="rounded-circle img-thumbnail" alt="" width="200">
-        <h1 class="display-4">Saiful Anam</h1>
-        <p class="lead fst-italic">Web Developer | Digital Marketing</p>
+        <img data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200" src="/img/f.jpeg" class="rounded-circle prof img-thumbnail" alt="" width="200"> 
+        <h1 class="display-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="400">Saiful Anam</h1>
+        <ul class="nav justify-content-center">
+          <li class="nav-item" data-aos="fade-down-right" data-aos-duration="1000" data-aos-delay="600">
+            <a class="nav-link text-secondary" href="/categories">Web Developer</a>
+          </li> | 
+          <li class="nav-item" data-aos="fade-down-left" data-aos-duration="1000" data-aos-delay="600">
+            <a class="nav-link text-secondary" href="/categories">Digital Marketing</a>
+          </li>
+        </ul>
         {{-- <hr class="my-4">
         <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
         <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> --}}
@@ -19,65 +26,147 @@
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="10" d="M0,192L48,181.3C96,171,192,149,288,160C384,171,480,213,576,224C672,235,768,213,864,192C960,171,1056,149,1152,138.7C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg> 
       </section>
 
-    <section id="about">
-      <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2>About Me</h2>
+      <section id="about">
+        <div class="container " >
+          <div class="row text-center mb-4">
+            <div class="col">
+              <h2>About Me</h2>
+            </div>
+          </div>
+          <div class="row justify-content-center fs-5 text-center">
+            <div class="col-4" data-aos="fade-right" data-aos-duration="1000">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad id quia itaque ut dolores. Harum deleniti accusantium maxime eligendi dolores.</p>
+            </div>
+            <div class="col-4" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad id quia itaque ut dolores. Harum delenitiitaque ut dolores. Harum deleniti accusantium maxime eligendi dolores.</p>
+            </div>
           </div>
         </div>
-        <div class="row justify-content-center fs-5 text-center">
-          <div class="col-4">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad id quia itaque ut dolores. Harum deleniti accusantium maxime eligendi dolores.</p>
-          </div>
-          <div class="col-4">
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ad id quia itaque ut dolores. Harum delenitiitaque ut dolores. Harum deleniti accusantium maxime eligendi dolores.</p>
-          </div>
-        </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e2edff" fill-opacity="10" d="M0,192L48,181.3C96,171,192,149,288,160C384,171,480,213,576,224C672,235,768,213,864,192C960,171,1056,149,1152,138.7C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-    </section>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#e2edff" fill-opacity="10" d="M0,192L48,181.3C96,171,192,149,288,160C384,171,480,213,576,224C672,235,768,213,864,192C960,171,1056,149,1152,138.7C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+      </section>
 
-    <section id="projects" style="background-color: #e2edff;">
-      <div class="container">
-        <div class="row text-center mb-4">
-          <div class="col">
-            <h2>My Projects</h2>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <div class="card" >
-              <img src="https://source.unsplash.com/500x400?progamming" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-center">You and Me</p>
+        <section id="projects" style="background-color: #e2edff;">
+          <div class="container">
+            <div class="row text-center mb-4">
+              <div class="col">
+                <h2>My Projects</h2>
               </div>
             </div>
-          </div>
-          <div class="col-4">
-            <div class="card" >
-              <img src="https://source.unsplash.com/500x400?web" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-center">You and Me</p>
+            
+            <div class="row">
+                {{-- post skip untuk menampilkan postingan yang terakhir kali di tambahkan --}}
+                @foreach ($posts->skip(1) as $post)
+                    <div class="col-sm-4 mb-3">
+                      <div class="card project">
+                        <div class="position-absolute px-3 py-2 text-white" style="background-color: rgba(0, 0, 0, 0.7)">
+                          {{-- /posts?category= untuk searching awal sebelumnya /categories/ --}}
+                          <a class="text-decoration-none text-white" href="/posts?category={{ $posts[0]->category->slug }}">{{ $post->category->name }}</a>
+                        </div>
+                                  @if ($post->image)
+                                  <div style="max-height: 350px; overflow:hidden;">
+                                      <img src="{{ asset('storage/' . $post->image) }}" alt="{{ $post->category->name }}" class="img-fluid">
+                                  </div>
+                                  @else    
+                                  
+                        <img src="https://source.unsplash.com/500x400?{{ $post->category->name }} " class="card-img-top" alt="{{ $post->category->name }} ">
+                                  @endif
+                        <div class="card-body">
+                          <h5 class="card-title">{{ $post->title }}</h5>
+                          <small>
+                            By. <a class="text-decoration-none" href="/posts?author={{ $post->author->username }}">{{ $post->author->name }}</a>
+                          </small>
+                          <p class="card-text">{{ $post->excerpt }}</p>
+                          <a href="/posts/{{ $post->slug }}" class="btn btn-primary">Read More</a>
+                        </div>
+                      </div>
+                    </div>
+                @endforeach
               </div>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="card" >
-              <img src="https://source.unsplash.com/500x400?design" class="card-img-top" alt="...">
-              <div class="card-body">
-                <p class="card-text text-center">You and Me</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="10" d="M0,160L48,138.7C96,117,192,75,288,90.7C384,107,480,181,576,186.7C672,192,768,128,864,122.7C960,117,1056,171,1152,160C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
-    </section>
+      
+          
 
-    <section id="contact">
+          {{-- untuk membuat links pada paginations --}}
+          <div class="justify-content-center">
+            {{ $posts->links() }}
+          </div>
+  
+          </div>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#ffffff" fill-opacity="10" d="M0,160L48,138.7C96,117,192,75,288,90.7C384,107,480,181,576,186.7C672,192,768,128,864,122.7C960,117,1056,171,1152,160C1248,149,1344,75,1392,37.3L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
+        </section>
+
+
+    <section id="gallery">
       <div class="container">
         <div class="row text-center mb-3">
+          <div class="col">
+            <h2>Gallery</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?computer" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?design" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?home" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?web" alt="">
+            </a>
+          </div>
+          
+          <div class="my-2"></div>
+
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?photography" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?computer" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?personal" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?progamming" alt="">
+            </a>
+          </div>
+          
+          <div class="my-2"></div>
+          
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?developer" alt="">
+            </a>
+          </div>
+          <div class="col-md-3">
+            <a href="">
+              <img class="img-fluid gallery-img" src="https://source.unsplash.com/300x300?web-design" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="contact mt-5">
+      <div class="container">
+        <div class="row mt-5 text-center mb-3">
           <div class="col">
             <h2>Contact Me</h2>
           </div>
@@ -151,7 +240,7 @@
         // tampilkan tombol kirim, hilangkan tombol loading
         btnLoading.classList.toggle('d-none');
         btnKirim.classList.toggle('d-none');
-        // tampilkan alert
+        // tampilkan alert 
         myAlert.classList.toggle('d-none');
         // risert isi form nya, hilangkan isinya
         form.reset();
@@ -159,5 +248,7 @@
         })
       .catch(error => console.error('Error!', error.message))
   })
+
+  
 </script>
   @endsection
